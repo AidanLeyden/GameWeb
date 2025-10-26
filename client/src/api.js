@@ -1,6 +1,8 @@
-const API_BASE =
+const RAW_API_BASE =
   import.meta.env.VITE_API_BASE ||
   (location.hostname === 'localhost' ? '' : 'https://your-server-project.vercel.app');
+// Remove any trailing slashes to avoid double-slash URLs that cause redirects/CORS issues
+const API_BASE = RAW_API_BASE.replace(/\/+$/, '');
 
 export async function fetchRecommendations(params) {
   const searchParams = new URLSearchParams();
