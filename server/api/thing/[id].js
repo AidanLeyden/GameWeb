@@ -2,7 +2,8 @@ export default async function handler(req, res) {
   // Basic CORS for cross-domain calls from client
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Vary', 'Origin');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
   try {
